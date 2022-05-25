@@ -1,0 +1,366 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: fantasy;
+}
+
+:root{
+    --px: 20px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 10vh;
+    background-color: orange;
+    padding: var(--px);
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.brand-title{
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-links li{
+    list-style-type: none;
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li:hover{
+    background-color: #555;
+}
+
+.hamburger{
+    display: none;/*For it not to be displayed by default in larger screens*/
+    flex-direction: column;/*For all the different child-elements(spans) to line on top of each other - works when display is changed to flex*/
+    justify-content: space-between;/*to have as much space as possible between each child-elements*/
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger .bar{
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+    min-height: 70vh;
+    background-color: green;
+}
+
+.content::after{
+    content: "test";
+    background-color:rgb(223, 108, 171);
+    width: 20vw;
+    height: 20vh;
+    transition: transform 1s;/*smooth transition of the transform effect in 1s*/
+}
+
+/*While hover on element with class named content, apply transform effect on selector after(after element of class named content)*/
+.content:hover::after{
+    transform: translateX(50%);
+}
+
+.relative{
+    background-color: saddlebrown;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.absolute{
+    background-color: slateblue;
+    width: 20vw;
+    height: 20vh;
+    position: absolute;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    top: 10px;
+    left: 10px;
+    transition: transform 1s;/*smooth transition of the transform effect in 1s*/
+}
+
+/*While hover on element with class named relative, apply transform effect on class named absolute*/
+.relative:hover .absolute{
+    transform: translateX(100%);/*translate at 100% of the width of the div with name absolute(X-Axe)*/
+}
+
+.relativeContent{
+    transition: transform 1s;/*smooth transition of the transform effect in 1s*/
+    background: grey;
+    width: 10vw;
+    height: 20vh;
+}
+
+/*While hover on element with class named relative, apply transform effect on class named relativeContent*/
+.relative:hover .relativeContent{
+    transform: translateY(100%);/*translate at 100% of the height of the div with name absolut(Y-Axe)*/
+}
+
+.rounded{
+    background-color: beige;
+    width: 10vw;
+    height: 5vw;
+    border-radius: 5rem;
+    transition: transform 1s;/*smooth transition of the transform effect in 1s*/
+}
+
+/*While hover on element with class named relative, apply transform effect on class named rounded*/
+.relative:hover .rounded{
+    transform: translate(80%, 100%);
+}
+
+.roundedT{
+    background-color:rgb(43, 226, 125);
+    width: 10vw;
+    height: 5vw;
+    border-radius: 5rem;
+    transition: transform 1s;/*smooth transition of the transform effect in 1s*/
+}
+
+/*While hover on element with class named relative, apply transform effect on class named roundedT*/
+.relative:hover .roundedT{
+    transform: rotate(90deg);
+}
+
+/*Grid content*/
+.content-grid{
+    min-height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);/*3 colonnes de taille 1fr*/
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px 20px;
+    padding: 10px;
+    background-color: darkcyan;
+}
+
+.box{
+    background-color:blanchedalmond;
+    border-radius: 10px;
+    width: 32vw;
+    height: 40vh;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 1s;
+}
+
+.box:hover{
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 5px rgb(224, 197, 197);
+}
+
+.boxImageContent{
+    height: 13vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+.boxParagraphContent{
+    height: 30vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.boxParagraph{
+    text-align: left;
+}
+
+.boxButtonContent{
+    height: 13vh;
+}
+
+.boxImage{
+    max-width: 30vw;
+    max-height: 10vh;
+    height: 10vh;
+    width: auto;
+    display: block;
+    margin: auto;
+}
+
+.boxButton{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 40px;
+    background-color:aquamarine;
+    border: 2px solid aqua;
+    border-radius: 25px;
+    transition: transform 1s;
+}
+
+.boxButton:hover{
+    box-shadow: 5px 5px 5px red;
+    transform: translate(-10%);
+}
+
+.parallax-effect{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    width: 99vw;
+    height: 50vh;
+    background-image: url(images/photo1.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.parallax-effect > h2{
+    font-size: 60px;
+    background: #eee;
+    padding: 8px 24px;
+    border-radius: 16px;
+}
+
+.slideshow{
+    width: 99vw;
+    height: 50vh;
+    position: relative;
+}
+
+.slideshowForward{
+    position: absolute;
+    top: 50%;
+    right: 50px;
+}
+
+.slideshowBackward{
+    position: absolute;
+    top: 50%;
+    left: 50px;
+}
+
+.slideshowlive{
+    width: 99vw;
+    height: 50vh;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    gap: 50px 50px;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 20vh;
+    background-color: skyblue;
+    padding: var(--px);
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: white;
+}
+
+@keyframes menuAnimation{
+    0% {
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+@media(max-width: 800px){
+    /*.relative{
+        position: static;
+    }
+    .absolute{
+        position: static;
+    }*/
+    .hamburger{
+        display: flex;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .navbar-links{
+        display: none;
+        width: 80vw;
+    }
+
+    .navbar-links ul{
+        width: calc(100% - 5px);
+        height: 100vh;
+        flex-direction: column;
+    }
+    .navbar-links li{
+        text-align: left;
+    }
+
+    .navbar-links li a{
+        padding: 1.5rem 1.5rem;
+    }
+
+    /*when navbar-links is active, display: flex*/
+    .navbar-links.active{
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+        display: flex;
+        background-color: orangered;
+        animation-name: menuAnimation;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease;
+        animation-fill-mode: forward;
+        z-index: 1;
+    }
+
+    .content-grid{
+        grid-template-columns: repeat(1, 1fr);/*1 colonne de taille 1fr*/
+    }
+
+    .box{
+        width: 94vw;
+    }
+
+    .footer{
+        flex-direction: column;
+        text-align: center;
+    }
+}
